@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Server Admin.</title>
+</head>
+<body>
+<h1>Administration Tasks</h1>
+
+<form action="/external/" method="post">
+{% csrf_token %}
+<div>
+Enter IPaddress:
+<input type="text" name="param1" required><br><br>
+Enter Username:
+<input type="text" name="param2" required><br><br>
+{{data_external}}<br><br>
+
+{{data1}}
+
+<input type="submit" value="Submit">
+</div>
+</form>  
+
+</body>
+</html>
