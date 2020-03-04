@@ -1,19 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Device Upgrade</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        
-        
-        
-         <style>
-           
+
 body {
 	background-color: #000;
 }
@@ -38,45 +23,25 @@ body {
   filter: alpha(opacity=60);
 }
 .form-container {
-	width: 450px;
+	width: 400px;
 	margin-left: auto;
 	margin-right: auto;
 	/*margin-top:90px;
 	margin-bottom: 30px;*/
-	padding: 40px;
-	background-color: #fff;
-	position: relative;
-	    box-shadow: 0 16px 24px 2px rgba(0,0,0,0.14), 0 20px 30px 5px rgba(0,0,0,0.12), 0 8px 10px -5px rgba(0,0,0,0.3);
-	position: absolute;
-	top: 30%;
-	left: 40%;;
-        display:inline-block;
-
-	-webkit-transform: translate(-50%, -50%);
-	-ms-transform: translate(-50%, -50%);
-	-o-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
-}
-.form-container1 {
-	width: 450px;
-	margin-left: auto;
-	margin-right: auto;
-	/*margin-top:90px;
-	margin-bottom: 30px;*/
-	padding: 40px;
+	padding: 30px;
 	background-color: #fff;
 	position: relative;
 	    box-shadow: 0 16px 24px 2px rgba(0,0,0,0.14), 0 20px 30px 5px rgba(0,0,0,0.12), 0 8px 10px -5px rgba(0,0,0,0.3);
 	position: absolute;
 	top: 50%;
-	right: 80%;
-        display:inline-block;
+	left: 50%;
 
 	-webkit-transform: translate(-50%, -50%);
 	-ms-transform: translate(-50%, -50%);
 	-o-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 }
+
 .form-container .row {
 	margin-bottom: 0;
 }
@@ -177,94 +142,3 @@ textarea.materialize-textarea:focus:not([readonly])+label {
 	    top: -26px;
 	}
 }
-
-          </style>
-
-
-          <script type="text/javascript">
-        function myFunction(data){
-                    
-                    var e=document.getElementById('frmupgrade');
-                    e.style.display = 'block';
-                   
-                 };
-       
-</script>
-    </head>
-
-<body>
-<div >
-  <h1 style="color:blue;text-align:center">Device Upgrade</h1>
-  
-</div>
-
-<form action="/output/" method="post" class="container">
-<table class="form-container z-depth-5">
-<tr>
- <td valign="top">
-  <label for="IP">IP Address *</label>
- </td>
-   {% csrf_token %}
-<td valign="top">
-<input type="text" name="param1" required style="width: 100%;">
-</td>
-<td valign="top">
-<input type="submit" value="Submit" onClick="myFunction({{data}})" id="btnsubmit">
-</td>
-</tr>
-</table>
-</form>
-<form action="/external/" id="frmupgrade" method="post" class="form-container z-depth" style="display:none">
-<table> 
-<tr>
- <td valign="top">
- <label for="user">Username *</label>
- </td>
- <td valign="top">
-<input type="text" name="param2" required style="width: 100%;">
- </td>
-</tr>
-<tr>
- <td valign="top">
- <label for="pwd">Password *</label>
- </td>
- <td valign="top">
-<input type="text" name="param3" required style="width: 100%;">
-{{data_external}}
-
-{{data1}}
- </td>
-</tr>
-<tr>
-<td>
-<label for="platform">Platform & OS Version</label>
-</td>
-</tr>
-<tr>
-<td>
-<label for="Imagedrp">Images</label>
-</td>
-<td>
- <select name="Image" >
-  <option value="Google">Google</option>
-  <option value="Bing">Bing</option>
-  <option value="Yahoo">Yahoo</opton>
- </select>
-</td>
-</tr>
-<tr>
-<td>
-<input type="submit" value="Upgrade">
-</td>
-</tr>
-</table>
-</form>  
-
-<div style="float:right;">
-<label for="lbloutput">OUTPUT</label>
-<textarea name="output" width="30%" style="padding:93px;margin-right:70px;">{{data}}</textarea>
-</div>
- <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
-</body>
-</html>
