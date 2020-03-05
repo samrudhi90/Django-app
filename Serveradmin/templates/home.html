@@ -15,14 +15,16 @@
          <style>
            
 body {
-	background-color: #000;
+	background-color: #e4e4e4;
 }
 html,
 body {
-	height: 100%;
+	;
 }
+
+.zig-zag { border: none; width: 50%; margin: auto; margin-top: 5%; margin-bottom: 5%; height: 40px; background: linear-gradient(135deg, #eb595f 25%, transparent 25%) -20px 0, linear-gradient(225deg, #ECEDDC 25%, transparent 25%) -20px 0, linear-gradient(315deg, #ECEDDC 25%, transparent 25%), linear-gradient(45deg, #ECEDDC 25%, transparent 25%); background-size: 40px 40px; background-color: #EC173A;}
 .imagebg {
-	background-image: url("images/avenue-2215317_1920.jpg");
+	background-image: url("/static/images/avenue-2215317_1920.jpg");
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
@@ -41,16 +43,17 @@ body {
 	width: 450px;
 	margin-left: auto;
 	margin-right: auto;
-	/*margin-top:90px;
-	margin-bottom: 30px;*/
+	
+	/*margin-bottom: 30px;*/
 	padding: 40px;
 	background-color: #fff;
 	position: relative;
 	    box-shadow: 0 16px 24px 2px rgba(0,0,0,0.14), 0 20px 30px 5px rgba(0,0,0,0.12), 0 8px 10px -5px rgba(0,0,0,0.3);
 	position: absolute;
-	top: 30%;
-	left: 40%;;
+	top: 51%;
+	left: 32%;;
         display:inline-block;
+        border-radius: 10px;
 
 	-webkit-transform: translate(-50%, -50%);
 	-ms-transform: translate(-50%, -50%);
@@ -66,9 +69,9 @@ body {
 	padding: 40px;
 	background-color: #fff;
 	position: relative;
-	    box-shadow: 0 16px 24px 2px rgba(0,0,0,0.14), 0 20px 30px 5px rgba(0,0,0,0.12), 0 8px 10px -5px rgba(0,0,0,0.3);
+	box-shadow: 0 16px 24px 2px rgba(0,0,0,0.14), 0 20px 30px 5px rgba(0,0,0,0.12), 0 8px 10px -5px rgba(0,0,0,0.3);
 	position: absolute;
-	top: 50%;
+	top: 47%;
 	right: 80%;
         display:inline-block;
 
@@ -182,10 +185,11 @@ textarea.materialize-textarea:focus:not([readonly])+label {
 
 
           <script type="text/javascript">
-        function myFunction(data){
-                    
-                    var e=document.getElementById('frmupgrade');
-                    e.style.display = 'block';
+          function myFunction(data){
+                   
+                    document.getElementById('txtuser').setAttribute("disabled", "true");
+                    document.getElementById('txtpwd').disabled= true;
+                   
                    
                  };
        
@@ -194,75 +198,88 @@ textarea.materialize-textarea:focus:not([readonly])+label {
 
 <body>
 <div >
-  <h1 style="color:blue;text-align:center">Device Upgrade</h1>
+  <h1 style="solid:1px; width:60%;border-bottom:1px solid #666;margin-left: auto;margin-right:auto;
+color:#eb595f;text-align:center;padding-top:20px;font-family: brandon-grotesque;letter-spacing: 0.08em;font-weight: lighter;">DEVICE UPGRADE</h1>
   
 </div>
 
-<form action="/output/" method="post" class="container">
+<form action="/external/" method="post" class="container">
 <table class="form-container z-depth-5">
 <tr>
  <td valign="top">
-  <label for="IP">IP Address *</label>
+  <label for="IP" style="font-family: brandon-grotesque;font-weight: lighter;font-size:14px">IP Address *</label>
  </td>
    {% csrf_token %}
 <td valign="top">
-<input type="text" name="param1" required style="width: 100%;">
+<input type="text" name="param1" required style="width: 100%;border-radius:10px;border:1px solid #a9a6a6;padding:2px;margin-top:2px">
 </td>
-<td valign="top">
-<input type="submit" value="Submit" onClick="myFunction({{data}})" id="btnsubmit">
-</td>
+
 </tr>
-</table>
-</form>
-<form action="/external/" id="frmupgrade" method="post" class="form-container z-depth" style="display:none">
-<table> 
+
 <tr>
  <td valign="top">
- <label for="user">Username *</label>
+ <label for="lbluser" style="font-family: brandon-grotesque;font-weight: lighter;font-size:14px">Username *</label>
  </td>
  <td valign="top">
-<input type="text" name="param2" required style="width: 100%;">
+ <input type="text" id="txtuser" name="param2" required  style="width: 100%;border-radius:10px;border:1px solid #a9a6a6;padding:2px;margin-top:2px" >
  </td>
 </tr>
 <tr>
  <td valign="top">
- <label for="pwd">Password *</label>
+ <label for="lblpwd" style="font-family: brandon-grotesque;font-weight: lighter;font-size:14px">Password *</label>
  </td>
  <td valign="top">
-<input type="text" name="param3" required style="width: 100%;">
+<input type="text" id="txtpwd" name="param3" required style="width: 100%;border-radius:10px;border:1px solid #a9a6a6;padding:2px;margin-top:2px">
 {{data_external}}
 
-{{data1}}
+
  </td>
 </tr>
 <tr>
+<td style="left:20%">
+
+</td>
 <td>
-<label for="platform">Platform & OS Version</label>
+<input type="submit" value="SUBMIT" id="btnsubmit" style="letter-spacing:0px;font-family:brandon-grotesque;background-color:#eb595f;color:white;border:none;padding:5px 10px;border-radius:10px;margin-top:5px;width:100%"/>
 </td>
 </tr>
+</form>
 <tr>
 <td>
-<label for="Imagedrp">Images</label>
+<label for="platform" style="font-family: brandon-grotesque;font-weight: lighter;font-size:14px">Platform & OS Version</label>
 </td>
+
+</tr>
+<form action="/output/" method="post" class="container">
+<tr>
 <td>
- <select name="Image" >
-  <option value="Google">Google</option>
-  <option value="Bing">Bing</option>
-  <option value="Yahoo">Yahoo</opton>
+<label for="Imagedrp" style="font-family: brandon-grotesque;font-weight: lighter;font-size:14px">Images</label>
+</td>
+{% csrf_token %}
+<td>
+ <select id="dldImage" name="dldImage" style="width:100%;border-radius:10px;border:1px solid #a9a6a6;padding:2px;margin-top:5px" >
+  <option value="Google" style="font-family: sans-serif;font-weight: lighter;font-size:14px">Google</option>
+  <option value="Bing" style="font-family: sans-serif;font-weight: lighter;font-size:14px">Bing</option>
+  <option value="Yahoo" style="font-family: sans-serif;font-weight: lighter;font-size:14px">Yahoo</opton>
  </select>
 </td>
 </tr>
+
 <tr>
 <td>
-<input type="submit" value="Upgrade">
+</td>
+<td valign="top">
+<input type="submit" value="UPGRADE"  id="btnupgrade" onclick="myFunction({{data}})" style=" font-family: brandon-grotesque;background-color:#eb595f;color:white;border:none;padding:5px 10px;border-radius:10px;margin-top:5px;width:100%"/>
 </td>
 </tr>
+</form>
 </table>
-</form>  
 
-<div style="float:right;">
-<label for="lbloutput">OUTPUT</label>
-<textarea name="output" width="30%" style="padding:93px;margin-right:70px;">{{data}}</textarea>
+ 
+
+<div width="30%" style="float:right;margin-right:65px;margin-top:42px;;height:100px">
+<label for="lbloutput"style="letter-spacing: 0.08em;text-align:center;margin-right:8%;font-family:brandon-grotesque;">OUTPUT</label>
+<textarea name="output"  rows="25" cols="45" style="wrap:true;text-align:left;color:green;background-color : #000;border-radius:10px;border:none;box-shadow: 0 16px 24px 2px rgba(0,0,0,0.14), 0 20px 30px 5px rgba(0,0,0,0.12), 0 8px 10px -5px rgba(0,0,0,0.3);white-space:normal;">{{data}}</textarea>
 </div>
  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
