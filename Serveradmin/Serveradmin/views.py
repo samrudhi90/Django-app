@@ -6,6 +6,8 @@ import sys
 import telnetlib
 import time
 import paramiko
+import html
+from django.utils.html import format_html
 from . import views
 
 from subprocess import run,PIPE
@@ -36,7 +38,7 @@ def external(request):
    else:
        data=hostname + ", is down!"
        request.session['data'] = data
-#  return render(request,'home.html',{'data':data.strip()}) 
+       return render(request,'home.html',{'data':data.strip()}) 
 
 #
 # save host login info
@@ -46,43 +48,33 @@ def external(request):
 # We first set up ssh session.
 #
 
-#   remote_conn_pre = paramiko.SSHClient()
-#   remote_conn_pre.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-#   remote_conn_pre.connect(hostname, port=22, username=username, password=password, look_for_keys=False, allow_agent=False)
-#   print("SSH connection established to " + hostname)
-#   remote_conn = remote_conn_pre.invoke_shell()
-
+   remote_conn_pre = paramiko.SSHClient()
+   remote_conn_pre.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+   remote_conn_pre.connect(hostname, port=22, username=username, password=password, look_for_keys=False, allow_agent=False)
+   data= data+"\n" + "SSH connection established to " + hostname
+   remote_conn = remote_conn_pre.invoke_shell()
+#   return render(request,'home.html',{'data':data})
 #
 # extract show version output
 # Disable pagination in the termial
 #
-#   remote_conn.send("terminal length 0\n")
-#   remote_conn.send("\n")
-#   remote_conn.send("show version\n")
-#   remote_conn.send("\n")
-#   time.sleep(5)
-#   if remote_conn.recv_ready():
-#         show_version = remote_conn.recv(1000)
-#
-# To print the CLI "output" as seen in the CLI it needs to
-# be formatted in String format "str" "utf-8" as shown below
-#
-#   show_version_str = show_version.decode('utf-8')
-#   platform_version_lst = platform_version_lst
-#
-# Extract version information
-#
-
-#   for platform_version in show_version_str.splitlines():
-#       if 'Cisco IOS Software' in platform_version:
-#          print (platform_version)
-#   data=data + platform_version_lst = platform_version
-#   platform_version_lst = platform_version_lst.split()
-
-#   print ( platform_version_lst )
     
-#   remote_conn.send("\n")
+   remote_conn.send("terminal length 0 \n")
+   remote_conn.send("\n")
+   remote_conn.send("show version\n")
+   remote_conn.send("\n")
+   time.sleep(5)
+   if remote_conn.recv_ready():
+         
+            show_version = remote_conn.recv(500)
+            data= data + "\n" + show_version.decode()
+            message= "Kindly proceed with upgrade by selecting new image"
+            data= data + "\n\n\n"+"############################################################"+"\n"+"############################################################"+"\n\n"+message +"\n\n" +"############################################################"+"\n"+"############################################################"
+
+            
+   remote_conn.send("\n")
 #
 #
    
-   return render(request,'home.html',{'data':data}) 
+   return render(request,'home.html',{'data':data})
+

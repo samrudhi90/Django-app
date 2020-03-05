@@ -1,0 +1,4 @@
+<option value="">---------</option>
+{% for image in images %}
+<option value="{{ image.pk }}">{{ image.name }}</option>
+{% endfor %}
