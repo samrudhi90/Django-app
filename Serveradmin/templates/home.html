@@ -166,38 +166,38 @@ textarea.materialize-textarea:focus:not([readonly])+label {
 
           <script>
           		
-			
+			 function filterimage(){
 			$("#dldhardware").change(function() {
 			
 				var $dropdown = $(this);
 			
-                                 var data={ "WS-C4948-10GE": "cat4500-entservicesk9-mz.150-2.SG6.bin,cat4500-entservicesk9-mz.150-2.SG7.bin,cat4500-entservicesk9-mz.150-2.SG8.bin,cat4500-entservicesk9-mz.150-2.SG9.bin,cat4500-entservicesk9-mz.150-2.SG10.bin,cat4500-entservicesk9-mz.150-2.SG11.bin",
-	"3850-24P-E": "cat3k_caa-universalk9.SPA.03.06.06.E.152-2.E6.bin,cat3k_caa-universalk9.SPA.03.06.07.E.152-2.E7.bin,cat3k_caa-universalk9.SPA.03.06.07b.E.152-2.E7b.bin,cat3k_caa-universalk9.SPA.03.06.08.E.152-2.E8.bin,cat3k_caa-universalk9.SPA.03.06.09.E.152-2.E9.bin	",
-        "3850-16XS-S": "cat3k_caa-universalk9.SPA.03.06.06.E.152-2.E6.bin,cat3k_caa-universalk9.SPA.03.06.07.E.152-2.E7.bin,cat3k_caa-universalk9.SPA.03.06.07b.E.152-2.E7b.bin,cat3k_caa-universalk9.SPA.03.06.08.E.152-2.E8.bin,cat3k_caa-universalk9.SPA.03.06.09.E.152-2.E9.bin",
-        "3850-24S-E": "cat3k_caa-universalk9.SPA.03.06.06.E.152-2.E6.bin,cat3k_caa-universalk9.SPA.03.06.07.E.152-2.E7.bin,cat3k_caa-universalk9.SPA.03.06.07b.E.152-2.E7b.bin,cat3k_caa-universalk9.SPA.03.06.08.E.152-2.E8.bin, cat3k_caa-universalk9.SPA.03.06.09.E.152-2.E9.bin"
-}
-				
+                                var data={"WS-C4948-10GE": "cat4500-entservicesk9-mz.150-2.SG6.bin,cat4500-entservicesk9-mz.150-2.SG7.bin,cat4500-entservicesk9-mz.150-2.SG8.bin,cat4500-entservicesk9-mz.150-2.SG9.bin,cat4500-entservicesk9-mz.150-2.SG10.bin,cat4500-entservicesk9-mz.150-2.SG11.bin",
+                                       "3850-24P-E": "cat3k_caa-universalk9.SPA.03.06.06.E.152-2.E6.bin,cat3k_caa-universalk9.SPA.03.06.07.E.152-2.E7.bin,cat3k_caa-universalk9.SPA.03.06.07b.E.152-2.E7b.bin,cat3k_caa-universalk9.SPA.03.06.08.E.152-2.E8.bin,cat3k_caa-universalk9.SPA.03.06.09.E.152-2.E9.bin",
+                                       "3850-16XS-S": "cat3k_caa-universalk9.SPA.03.06.06.E.152-2.E6.bin,cat3k_caa-universalk9.SPA.03.06.07.E.152-2.E7.bin,cat3k_caa-universalk9.SPA.03.06.07b.E.152-2.E7b.bin,cat3k_caa-universalk9.SPA.03.06.08.E.152-2.E8.bin,cat3k_caa-universalk9.SPA.03.06.09.E.152-2.E9.bin",
+                                       "3850-24S-E": "cat3k_caa-universalk9.SPA.03.06.06.E.152-2.E6.bin,cat3k_caa-universalk9.SPA.03.06.07.E.152-2.E7.bin,cat3k_caa-universalk9.SPA.03.06.07b.E.152-2.E7b.bin,cat3k_caa-universalk9.SPA.03.06.08.E.152-2.E8.bin, cat3k_caa-universalk9.SPA.03.06.09.E.152-2.E9.bin"}
+                                       
+				       
 					var key = $dropdown.val();
 					var vals = [];
                                         
 										
 					switch(key) {
 						case 'WS-C4948-10GE':
-							vals = data.WS-C4948-10GE.split(",");
+							vals = data["WS-C4948-10GE"].split(",");
 							break;
 						case '3850-24P-E':
-							vals = data.3850-24P-E.split(",");
+							vals = data["3850-24P-E"].split(",");
 							break;
                                                 case '3850-16XS-S':
-                                                        vals = data.3850-16XS-S.split(",");
+                                                        vals = data["3850-16XS-S"].split(",");
 							break;
                                                 case '3850-24S-E':
-                                                        vals = data.3850-24S-E.split(",");
+                                                        vals = data["3850-24S-E"].split(",");
 							break;
                                                 case '3850-24XS-E':
-                                                        vals = data.3850-24XS-E.split(",");
+                                                        vals = data["3850-24XS-E"].split(",");
 							break;
-						case 'base':
+						case 'Select':
 							vals = ['Please choose from above'];
 					}
 					
@@ -208,8 +208,8 @@ textarea.materialize-textarea:focus:not([readonly])+label {
 					});
 			
 				});
-			});
-
+			
+}
 		
 
        
@@ -269,12 +269,13 @@ color:#eb595f;text-align:center;padding-top:20px;font-family: brandon-grotesque;
 <label for="platform" style="font-family: brandon-grotesque;font-weight: lighter;font-size:14px">Platform & OS Version</label>
 </td>
 <td>
- <select id="dldhardware" name="dldhardware" style="width:100%;border-radius:10px;border:1px solid #a9a6a6;padding:2px;margin-top:5px" >
+ <select id="dldhardware" name="dldhardware" style="width:100%;border-radius:10px;border:1px solid #a9a6a6;padding:2px;margin-top:5px" oninput="filterimage();">
+   <option value="Select" style="font-family: sans-serif;font-weight: lighter;font-size:14px" selected value="Select">Select</option>
   <option value="WS-C4948-10GE" style="font-family: sans-serif;font-weight: lighter;font-size:14px">WS-C4948-10GE</option>
   <option value="3850-24P-E" style="font-family: sans-serif;font-weight: lighter;font-size:14px">3850-24P-E</option>
   <option value="3850-16XS-S" style="font-family: sans-serif;font-weight: lighter;font-size:14px">3850-16XS-S</option>
-<option value="3850-24S-E" style="font-family: sans-serif;font-weight: lighter;font-size:14px">3850-24S-E</option>
-<option value="3850-24XS-E" style="font-family: sans-serif;font-weight: lighter;font-size:14px">3850-24XS-E</option>
+  <option value="3850-24S-E" style="font-family: sans-serif;font-weight: lighter;font-size:14px">3850-24S-E</option>
+  <option value="3850-24XS-E" style="font-family: sans-serif;font-weight: lighter;font-size:14px">3850-24XS-E</option>
  </select>
 </td>
 
