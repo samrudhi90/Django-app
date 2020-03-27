@@ -2,5 +2,5 @@
 	"WS-C4948-10GE": "cat4500-entservicesk9-mz.150-2.SG6.bin,cat4500-entservicesk9-mz.150-2.SG7.bin,cat4500-entservicesk9-mz.150-2.SG8.bin,cat4500-entservicesk9-mz.150-2.SG9.bin,cat4500-entservicesk9-mz.150-2.SG10.bin,cat4500-entservicesk9-mz.150-2.SG11.bin",
 	"3850-24P-E": "cat3k_caa-universalk9.SPA.03.06.06.E.152-2.E6.bin,cat3k_caa-universalk9.SPA.03.06.07.E.152-2.E7.bin,cat3k_caa-universalk9.SPA.03.06.07b.E.152-2.E7b.bin,cat3k_caa-universalk9.SPA.03.06.08.E.152-2.E8.bin,cat3k_caa-universalk9.SPA.03.06.09.E.152-2.E9.bin	",
         "3850-16XS-S": "cat3k_caa-universalk9.SPA.03.06.06.E.152-2.E6.bin,cat3k_caa-universalk9.SPA.03.06.07.E.152-2.E7.bin,cat3k_caa-universalk9.SPA.03.06.07b.E.152-2.E7b.bin,cat3k_caa-universalk9.SPA.03.06.08.E.152-2.E8.bin,cat3k_caa-universalk9.SPA.03.06.09.E.152-2.E9.bin",
-        "3850-24S-E": "cat3k_caa-universalk9.SPA.03.06.06.E.152-2.E6.bin,cat3k_caa-universalk9.SPA.03.06.07.E.152-2.E7.bin,cat3k_caa-universalk9.SPA.03.06.07b.E.152-2.E7b.bin,cat3k_caa-universalk9.SPA.03.06.08.E.152-2.E8.bin, cat3k_caa-universalk9.SPA.03.06.09.E.152-2.E9.bin"
+        "3850-24S-E": "catyu3k_caa-universalk9.SPA.03.06.06.E.152-2.E6.bin,cat3k_caa-universalk9.SPA.03.06.07.E.152-2.E7.bin,cat3k_caa-universalk9.SPA.03.06.07b.E.152-2.E7b.bin,cat3k_caa-universalk9.SPA.03.06.08.E.152-2.E8.bin, cat3k_caa-universalk9.SPA.03.06.09.E.152-2.E9.bin"
 }
